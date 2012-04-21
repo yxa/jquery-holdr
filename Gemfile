@@ -1,0 +1,10 @@
+source 'http://rubygems.org'
+
+gem 'guard'
+gem 'guard-coffeescript'
+gem 'guard-process'
+gem 'guard-uglify'
+gem 'guard-jasmine'
+gem 'rb-fsevent'
+gem 'growl'
+gem 'jasmine'

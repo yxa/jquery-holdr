@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>holdr jquery plugin test</title>
+    <meta name="description" content="holdr jquery plugin page">
+    <meta name="author" content="torbjorn josefsson">
+  </head>
+  <body>
+    <div id="images">    
+      <img src=""  width="200px" height="300px"/>
+      <img src="http://flickholdr.com/200/300"/>
+      <img src=""/>
+    </div>
+    <script src="lib/jquery-1.7.2.js"></script>
+    <script src="holdr.js"></script>
+    <script>
+      $(function() {
+        $('img').holdr();
+      });
+    </script>
+  </body>
+</html>
