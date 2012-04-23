@@ -10,7 +10,6 @@
 
     var processors = {
       defaultProcessor: function(){
-                          console.log("this in processors object is %o",this);
                           var emptyNodes = [];
                           this.each(function(){
                             var $this = $(this);
@@ -26,7 +25,6 @@
 
     var providers = {
       flickholdr: function() {
-                    console.log("this is providers object is %o",this);
                     var emptyNodes = processors.defaultProcessor.apply(this);
                     return $(emptyNodes).each(function(index,item){
                       var width = item.width();
