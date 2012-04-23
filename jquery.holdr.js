@@ -31,7 +31,7 @@
                     return $(emptyNodes).each(function(index,item){
                       var width = item.width();
                       var height = item.height();
-                      var keyword = escape(item.attr('alt'));
+                      var keyword = item.attr('alt');
                       var src = 'http://' + settings.provider + '.com/' +
                                 (width ? width : settings.defaultWidth) +
                                 '/'+ (height ? width : settings.defaultHeight) +
@@ -56,7 +56,7 @@
                      return $(emptyNodes).each(function(index,item){
                          var width = item.width();
                          var height = item.height();
-                         var keyword = escape(item.attr('alt'));
+                         var keyword = item.attr('alt');
                          var set = 'set' + Math.floor(Math.random() * (3 - 1 + 1) + 1);
 
                          var src = 'http://' + settings.provider + '.org/' +
