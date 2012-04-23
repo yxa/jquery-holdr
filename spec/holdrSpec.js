@@ -30,7 +30,7 @@ describe('holdr jquery plugin',function(){
     expect($("img[src='"+ url +"']").length).toBe(1);
   });
 
-  it('should be able to replace more than one image tag with empty src attribut',function(){
+  it('should be able to replace more than one image tag with empty src attribute',function(){
     var emptyImages = $("img[src='']");
     expect(emptyImages.length).toBe(2);
     var allImages = $("img");
@@ -46,5 +46,21 @@ describe('holdr jquery plugin',function(){
     images.holdr();
     expect(images).toBeModified();
   });
+
+  it('should replace empty img src attributes with default placeholder attributes',function() {
+    var defaultProvider = 'http://flickholdr.com';
+    var defaultWidth = 200;
+    var defaultHeight = 300;
+
+    var emptyImages = $("img[src='']");
+    expect(emptyImages).toExist();
+    emptyImages.holdr();
+    expect(emptyImages).toBeModified();
+
+    emptyImages.each(function(index,item){
+     expect($(item).attr('src')).toEqual(defaultProvider + '/' + defaultWidth + '/' + defaultHeight + '/');
+    });
+  });
+
 
 });

@@ -8,15 +8,18 @@
   </head>
   <body>
     <div id="images">    
-      <img src=""  width="200px" height="300px"/>
+      <img src=""  id="arnold" width="200px" height="300px" alt="arnold"/>
       <img src="http://flickholdr.com/200/300"/>
       <img src=""/>
     </div>
     <script src="lib/jquery-1.7.2.js"></script>
-    <script src="holdr.js"></script>
+    <script src="jquery.holdr.js"></script>
     <script>
       $(function() {
-        $('img').holdr();
+        //$('img').holdr({'provider': 'placekitten'});
+        //$('img').holdr();
+        //$('img').holdr({'provider': 'doesnotexist'});
+        $('img').holdr({'provider': 'robohash'});
       });
     </script>
   </body>
