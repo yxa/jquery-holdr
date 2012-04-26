@@ -1,4 +1,13 @@
-;(function($,undefined) {
+(function(factory) {
+  if(typeof define === 'function' && define.amd) {
+    console.log('amd support exists');
+    define(['jquery'],factory);
+  } else {
+    console.log("amd does not exists");
+    factory(jQuery);
+  }
+
+}(function($,undefined) {
 
   $.fn.holdr = function(options){
 
@@ -76,4 +85,4 @@
     }
   };
 
-})(jQuery);
+}));
