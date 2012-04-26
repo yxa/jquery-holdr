@@ -1,9 +1,7 @@
 (function(factory) {
   if(typeof define === 'function' && define.amd) {
-    console.log('amd support exists');
     define(['jquery'],factory);
   } else {
-    console.log("amd does not exists");
     factory(jQuery);
   }
 
@@ -77,7 +75,6 @@
                 }
     };
     if(providers[settings.provider]) {
-      console.log("contains provider");
       return providers[settings.provider].apply(this);
     } else {
       settings.provider = 'flickholdr';
