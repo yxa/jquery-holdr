@@ -4,7 +4,6 @@
   } else {
     factory(jQuery);
   }
-
 }(function($,undefined) {
 
   $.fn.holdr = function(options){
@@ -16,7 +15,7 @@
     },options);
 
     var processors = {
-      defaultProcessor: function(){
+      defaultProcessor: function(callback){
                           var emptyNodes = [];
                           this.each(function(){
                             var $this = $(this);
@@ -26,13 +25,12 @@
                               }
                             }
                           });
-                          return emptyNodes;
+                          return callback.call(this,emptyNodes);
                         }
     };
 
     var providers = {
-      flickholdr: function() {
-                    var emptyNodes = processors.defaultProcessor.apply(this);
+      flickholdr: function(emptyNodes) {
                     return $(emptyNodes).each(function(index,item) {
                       var width = item.width(),
                           height = item.height(),
@@ -46,8 +44,7 @@
                       item.attr('src',src);
                     });
                   },
-      placekitten: function() {
-                     var emptyNodes = processors.defaultProcessor.apply(this);
+      placekitten: function(emptyNodes) {
                      return $(emptyNodes).each(function(index,item) {
                        var  width = item.width(),
                             height = item.height(),
@@ -59,8 +56,7 @@
                             item.attr('src',src);
                      });
                    },
-      robohash: function() {
-                     var emptyNodes = processors.defaultProcessor.apply(this);
+      robohash: function(emptyNodes) {
                      return $(emptyNodes).each(function(index,item){
                         var width = item.width(),
                             height = item.height(),
@@ -80,10 +76,10 @@
                 }
     };
     if(providers[settings.provider]) {
-      return providers[settings.provider].apply(this);
+      var provider = providers[settings.provider];
+      return processors.defaultProcessor.call(this,provider);
     } else {
-      settings.provider = 'flickholdr';
-      return providers.flickholdr.apply(this);
+      return processors.defaultProcessor.call(this,providers['flickholdr']);
     }
   };
 
